@@ -11,7 +11,7 @@ string lMensagem =
     $"Placa: {v.Placa}\n" +
     $"Potência: {v.Potencia}\n" +
     $"Montadora: {v.Montadora}\n" +
-    $"Ano: {v.Placa}\n\n" +
+    $"Ano: {v.Ano}\n\n" +
     $"Valor líquido do aluguel: {lValorLiquido}";
 
 Console.WriteLine(lMensagem);

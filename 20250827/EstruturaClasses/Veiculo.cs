@@ -36,10 +36,10 @@ namespace EstruturaClasses
                     break;
                 }
                 case TipoPessoa.Juridica:
-                    {
-                        lValorDesconto = (pValorBruto * DESCONTO_PESSOA_JURIDICA);
-                        break;
-                    }
+                {
+                    lValorDesconto = (pValorBruto * DESCONTO_PESSOA_JURIDICA);
+                    break;
+                }
             }
 
             return (pValorBruto - lValorDesconto);
