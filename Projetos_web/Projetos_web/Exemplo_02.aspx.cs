@@ -35,10 +35,56 @@ namespace Projetos_web
             ddlDados.Items.Add(new ListItem("Rosa", "500"));
         }
 
+        private void PreencherCarros()
+        {
+            lbiCarros.Items.Add(new ListItem("Corolla", "1"));
+            lbiCarros.Items.Add(new ListItem("Civic", "2"));
+            lbiCarros.Items.Add(new ListItem("Polo", "3"));
+            lbiCarros.Items.Add(new ListItem("Siena", "4"));
+            lbiCarros.Items.Add(new ListItem("Palio", "5"));
+            lbiCarros.Items.Add(new ListItem("Celta", "6"));
+        }
+
+        protected void showMessageBox(string message)
+        {
+            string sJavaScript = "<script language=javascript>\n";
+            sJavaScript += "alert('" + message + "');";
+            sJavaScript += "\n";
+            sJavaScript += "</script>";
+            ClientScript.RegisterStartupScript(typeof(string), "MessageBox", sJavaScript);
+        }
+
+        private string CarrosSelecionados()
+        {
+            var lRetorno = string.Empty;
+            /* foreach (ListItem item in lbiCarros.Items)
+            {
+                if (item.Selected)
+                {
+                    lRetorno += item.Text + ";";
+                }
+            }
+            return lRetorno;*/
+
+            var I = 0;
+            while (I < lbiCarros.Items.Count)
+            {
+                if (lbiCarros.Items[I].Selected)
+                {
+                    lRetorno += lbiCarros.Items[I].Text + ";";
+                }
+
+                I++;
+            }
+
+            return lRetorno.Substring(0, lRetorno.Length - 1);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack) {
                 PreencherCores();
+                PreencherCarros();
             }
         }
 
@@ -50,6 +96,13 @@ namespace Projetos_web
         protected void ddlDados_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblInformacao.Text = CodigoCorSelecionada();
+        }
+
+        protected void btnSelecionados_Click(object sender, EventArgs e)
+        {
+            var lResultado = CarrosSelecionados();
+            lblInformacao3.Text = lResultado;
+            showMessageBox(lResultado);
         }
     }
 }
