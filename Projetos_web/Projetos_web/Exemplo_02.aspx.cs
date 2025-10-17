@@ -67,7 +67,7 @@ namespace Projetos_web
             return lRetorno;*/
 
             var I = 0;
-            while (I < lbiCarros.Items.Count)
+            while (I <= lbiCarros.Items.Count)
             {
                 if (lbiCarros.Items[I].Selected)
                 {
