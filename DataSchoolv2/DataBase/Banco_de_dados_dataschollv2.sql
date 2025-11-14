@@ -36,12 +36,11 @@ CREATE TABLE IF NOT EXISTS `aluno` (
 -- Copiando estrutura para tabela dataschool.professor
 DROP TABLE IF EXISTS `professor`;
 CREATE TABLE IF NOT EXISTS `professor` (
-  `codprofessor` int(11) NOT NULL,
+  `codprofessor` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(60) NOT NULL,
   `cpf` varchar(11) NOT NULL,
-  `sexo` char(1) NOT NULL,
   `titulacao` varchar(50) NOT NULL,
-  `area` varchar(50) DEFAULT NULL,
+  `area` varchar(50) NOT NULL,
   PRIMARY KEY (`codprofessor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
